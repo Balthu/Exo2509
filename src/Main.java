@@ -11,11 +11,9 @@ public class Main {
 
         // utilisation volontaire de int à la place de byte pour éviter des cast implicite lors des incrémentations
         int i = 100;
-        while (i >= 11) {
-            if (i % 2 == 0){
-                System.out.println(i);
-            }
-            i--;
+        while (i >= 12) {  
+            System.out.println(i);
+            i -= 2;
         }
 
         /*
@@ -35,15 +33,14 @@ public class Main {
         boolean[] tabBool = new boolean[100];
         Arrays.fill(tabBool, true); // méthode qui remplit tous les éléments du tableau avec une valeur
         int k = 1;
-        while ((2 * k) <= 100) {
+        do {
             tabBool[(2 * k) - 1] = false;
-            k++;
-        }
+        } while ((2 * ++k) <= 100);
         k = 1;
-        while ((3 * k) <= 100) {
+        do {
             tabBool[(3 * k) - 1] = false;
-            k++;
-        }
+        } while ((3 * ++k) <= 100);
+        System.out.println(Arrays.toString(tabBool));
 
         /*
         Afficher les 100 premiers nombres premier à partir du nombre 50
@@ -91,7 +88,7 @@ public class Main {
         char[] alphabetChar = new char[52];
         // utilisation de la variable alphabet du précédent exercice
         String alphabetMinus = alphabet.toLowerCase();
-        for (int x = 0; x < 52; x += 2){
+        for (int x = 0; x <= 50; x += 2){
             alphabetChar[x] = alphabetMinus.charAt(x/2);
             alphabetChar[x+1] = alphabet.charAt(25 - (x/2));
         }
